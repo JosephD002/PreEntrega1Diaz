@@ -1,0 +1,14 @@
+.Carrito{
+    display: flex;
+    width: 50px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.SpanCarrito{
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+/*style={{display:'flex', width: '50px', justifyContent:'space-between',alignItems:'center' }}
+style={{fontWeight:'bold',fontsize: '1.3rem'}}

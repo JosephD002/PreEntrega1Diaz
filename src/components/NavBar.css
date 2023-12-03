@@ -1,0 +1,17 @@
+.texto {
+    transition: .5s !important;
+}
+
+.texto:hover{
+    color:rgb(0, 204, 255) !important;
+    
+}
+
+
+.texto-oculto{
+    transition: .5s !important;
+}
+
+.texto-oculto:hover {
+    color:red!important;
+}
