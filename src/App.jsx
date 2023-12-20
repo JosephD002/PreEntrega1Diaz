@@ -1,26 +1,24 @@
-//?Boostrap
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-//?CSS
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 
-//?NavBar
+import "./App.css";
+import FirstRouter from "./router/FirstRouter";
+
 import NavBar from "./components/navbar";
-
-//?ItemListContainer
-import ItemListContainer from "./ItemListContainer";
 
 
 const App = () => {
+ 
+
+
   return (
-    <div className='pantalla'>
-     <NavBar />
-     <ItemListContainer greeting="Logic" />
-     <ItemListContainer greeting="Proximamente..." />
+    <div className="pantalla">
+    <FirstRouter/>
+    
     </div>
   );
-}
+};
 
 export default App;
 
-//!colocar los estilos en un archivo CSS
+

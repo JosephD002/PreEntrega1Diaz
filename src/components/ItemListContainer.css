@@ -3,8 +3,8 @@
     font-size:  60px;;
     width:100vw;
     height: 50vh;
-    text-align:center;
     transition: .5s;
+  
 }
 
 .DivItemList:hover{
