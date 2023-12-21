@@ -7,7 +7,7 @@ import {  useGetProductsByCategory } from "../hooks/useProducts"
    
     const  {productsData}= useGetProductsByCategory(id)
 
-    return <ItemListContainer productsData={{productsData}} />
+    return <ItemListContainer productsData={productsData} />
     
   
 }

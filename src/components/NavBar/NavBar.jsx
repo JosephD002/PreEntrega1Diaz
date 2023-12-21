@@ -44,9 +44,4 @@ const NavBar = () => {
 
 export default NavBar;
 
- /*{
-  const {Categories} =useGetCategories()
-        Categories.map((category,index) => {
-          <Link key={index} to={`/category/${category}`}>{category}</Link>
-        })
-      }*/
+ 

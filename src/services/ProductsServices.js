@@ -9,17 +9,19 @@ import axios from "axios";
  * @returns  {Promise}
  */
 export async function getProducts(limit=10){
-  return await axios.get(`https://dummyjson.com/products?limit=${limit}`)
+  return await axios.get(`https://fakestoreapi.com/products?limit=${limit}`)
 }
 
 export async function getProductsById(id){
-  return await axios.get(`https://dummyjson.com/products/${id}`)
+  return await axios.get(`https://fakestoreapi.com/products/${id}`)
 }
 
 export async function getCategories(){
-  return await axios.get('https://dummyjson.com/products/categories')
+  return await axios.get('https://fakestoreapi.com/products/categories')
 }
 
 export async function getProductsByCategory(id){
-  return await axios.get(`https://dummyjson.com/products/category/${id}`)
+  return await axios.get(`https://fakestoreapi.com/products/category/${id}`)
 }
+
+

@@ -14,9 +14,9 @@ const ItemListContainer = ({productsData}) => {
       <div >{
          productsData.map((products) =>{
           return(
-            <Card  key={products.id}style={{ width: '18rem' }}>
+            <Card  key={products.id} style={{ width: '18rem' }}>
            <Link to={`/item/${products.id}`}> 
-           <Card.Img variant="top" src={products.thumbnail} />
+           <Card.Img variant="top" src={products.image} />
            </Link>
             <Card.Body>
               <Card.Title>{products.title}</Card.Title>

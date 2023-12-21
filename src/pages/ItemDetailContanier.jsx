@@ -11,7 +11,7 @@ import { useParams } from 'react-router';
     
     return (
         <Card  key={productData.id}style={{ width: '18rem' }}>
-        <Card.Img variant="top" src={productData.thumbnail} />
+        <Card.Img variant="top" src={productData.image} />
          <Card.Body>
            <Card.Title>{productData.title}</Card.Title>
            <Card.Text>

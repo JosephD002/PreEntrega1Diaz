@@ -1,10 +1,13 @@
 
+
+//?BOOSTRAP
 import "bootstrap/dist/css/bootstrap.min.css";
 
+//?CSS
 import "./App.css";
 
 
-import NavBar from "./components/NavBar/NavBar";
+//?RUTAS
 import FirstRouter from "./router/firstRouter";
 
 
