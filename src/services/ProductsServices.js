@@ -9,7 +9,17 @@ import axios from "axios";
  * @returns  {Promise}
  */
 export async function getProducts(limit=10){
-  return await axios.get('https://rickandmortyapi.com/api/character')
+  return await axios.get(`https://dummyjson.com/products?limit=${limit}`)
 }
 
-console.log(getProducts)
+export async function getProductsById(id){
+  return await axios.get(`https://dummyjson.com/products/${id}`)
+}
+
+export async function getCategories(){
+  return await axios.get('https://dummyjson.com/products/categories')
+}
+
+export async function getProductsByCategory(id){
+  return await axios.get(`https://dummyjson.com/products/category/${id}`)
+}

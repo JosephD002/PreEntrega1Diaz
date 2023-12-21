@@ -11,19 +11,19 @@ const ItemListContainer = ({productsData}) => {
  
   return (
     
-      <div>{
-         productsData.map(results =>{
+      <div >{
+         productsData.map((products) =>{
           return(
-            <Card  key={results.id}style={{ width: '18rem' }}>
-           <Link to={'/item/{$results.id}'}> 
-           <Card.Img variant="top" src={results.image } />
+            <Card  key={products.id}style={{ width: '18rem' }}>
+           <Link to={`/item/${products.id}`}> 
+           <Card.Img variant="top" src={products.thumbnail} />
            </Link>
             <Card.Body>
-              <Card.Title>{results.name}</Card.Title>
+              <Card.Title>{products.title}</Card.Title>
               <Card.Text>
-                {results.status}
+                {products.description}
               </Card.Text>
-              {results.species}
+              {products.price}
             </Card.Body>
           </Card>
           )
@@ -31,9 +31,8 @@ const ItemListContainer = ({productsData}) => {
         }
       </div>
     
-  )  ${results.id}
+  ) 
 } 
 
 export default ItemListContainer
 
-//!colocar los estilos en un archivo CSS

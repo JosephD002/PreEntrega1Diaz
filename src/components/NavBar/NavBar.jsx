@@ -4,13 +4,18 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import CartWidget from './CartWidget';
+import CartWidget from '../CartWidget';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import './NavBar.css';
 
-import './NavBar.css'
+import { useGetCategories } from '../../hooks/useProducts';
+
+
 
 const NavBar = () => {
+  
+   const {categories}= useGetCategories()
   return (
 <Navbar expand="lg" className="bg-body-tertiary " data-bs-theme="dark">
 <Container>
@@ -20,16 +25,18 @@ const NavBar = () => {
     <Nav className="me-auto">
       <Nav.Link href="#home" className='texto'>Inicio</Nav.Link>
       <Nav.Link href="#link" className='texto'>Productos</Nav.Link>
-      <NavDropdown title="Otros" id="basic-nav-dropdown" >
-        <NavDropdown.Item href="#action/3.1" className=' texto'>Consultas</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.2" className='texto'>ubicacion</NavDropdown.Item>
-        <NavDropdown.Item href="#action/3.3" className='texto'>Sobre nosotros</NavDropdown.Item>
-        <NavDropdown.Divider />
-        <NavDropdown.Item href="#action/3.4" className='texto-oculto'>Quejas </NavDropdown.Item>
+      <NavDropdown title="categorias" id="basic-nav-dropdown" >
+      {
+        categories.map((category,index) => {
+          return (
+            <NavDropdown.Item key={index}><Link key={index} to={`/category/${category}`}>{category}</Link></NavDropdown.Item>
+          )
+        })
+      }
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
-  <Button variant="outline-light"><CartWidget/></Button>{' '}
+  <Button variant="outline-light"><CartWidget/></Button>
 </Container>
 </Navbar>
   )
@@ -37,3 +44,9 @@ const NavBar = () => {
 
 export default NavBar;
 
+ /*{
+  const {Categories} =useGetCategories()
+        Categories.map((category,index) => {
+          <Link key={index} to={`/category/${category}`}>{category}</Link>
+        })
+      }*/

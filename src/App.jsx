@@ -2,9 +2,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import "./App.css";
-import FirstRouter from "./router/FirstRouter";
 
-import NavBar from "./components/navbar";
+
+import NavBar from "./components/NavBar/NavBar";
+import FirstRouter from "./router/firstRouter";
 
 
 const App = () => {

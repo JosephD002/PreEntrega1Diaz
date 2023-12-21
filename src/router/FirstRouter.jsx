@@ -1,8 +1,8 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom"
 import {Home} from "../pages/Home"
-import {Category} from "../pages/category"
+import { Category } from "../pages/Category"
 import { ItemDetailContainer } from "../pages/ItemDetailContanier"
-import NavBar from "../components/navbar"
+import NavBar from "../components/NavBar/NavBar"
 
 const firstRouter = () => {
   return (
