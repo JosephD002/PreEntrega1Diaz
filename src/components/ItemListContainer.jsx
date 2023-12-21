@@ -11,7 +11,7 @@ const ItemListContainer = ({productsData}) => {
  
   return (
     
-      <div >{
+      <div className='productos' >{
          productsData.map((products) =>{
           return(
             <Card  key={products.id} style={{ width: '18rem' }}>
