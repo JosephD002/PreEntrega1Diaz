@@ -7,17 +7,16 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
 
+
 const ItemListContainer = ({productsData}) => {
- 
   return (
-    
-      <div className='productos' >{
-         productsData.map((products) =>{
-          return(
-            <Card  key={products.id} style={{ width: '18rem' }}>
-           <Link to={`/item/${products.id}`}> 
-           <Card.Img variant="top" src={products.image} />
-           </Link>
+    <div className='productos' >
+      {productsData && productsData.map((products) =>{
+        return(
+          <Card  key={products.id} style={{ width: '18rem' }}>
+            <Link to={`/item/${products.id}`}> 
+              <Card.Img variant="top" src={products.image} />
+            </Link>
             <Card.Body>
               <Card.Title>{products.title}</Card.Title>
               <Card.Text>
@@ -26,13 +25,36 @@ const ItemListContainer = ({productsData}) => {
               {products.price}
             </Card.Body>
           </Card>
-          )
-         })
-        }
-      </div>
-    
+        )
+      })}
+    </div>
   ) 
-} 
+}
 
 export default ItemListContainer
 
+
+/*
+const ItemListContainer = ({productsData}) => { 
+  return ( 
+      <div className='productos' >{ 
+         productsData.map((products) =>{ 
+          return( 
+            <Card  key={products.id} style={{ width: '18rem' }}> 
+           <Link to={`/item/${products.id}`}>  
+           <Card.Img variant="top" src={products.image} /> 
+           </Link> 
+            <Card.Body> 
+              <Card.Title>{products.title}</Card.Title> 
+              <Card.Text> 
+                {products.description} 
+              </Card.Text> 
+              {products.price} 
+            </Card.Body> 
+          </Card> 
+          ) 
+         }) 
+        } 
+      </div> 
+  )  
+}  */
