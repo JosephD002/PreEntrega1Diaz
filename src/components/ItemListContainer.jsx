@@ -5,10 +5,26 @@ import './ItemListContainer.css'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-
+import { useState,useEffect } from 'react';
 
 
 const ItemListContainer = ({productsData}) => {
+  
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Simulamos la obtención de datos con useEffect
+  useEffect(() => {
+    if (productsData) {
+      setIsLoading(false);
+    }
+  }, [productsData]);
+
+  // Mientras los datos están cargando, mostramos un mensaje de carga
+  if (isLoading) {
+    return <div>Cargando...</div>;
+  }
+
+  
   return (
     <div className='productos' >
       {productsData && productsData.map((products) =>{

@@ -6,7 +6,7 @@ import { getProducts, getProductsById ,getCategories,getProductsByCategory} from
  * @description Hook that is used to get products
  * @returns  {Array}
  */
-export const useGetProducts = (limit) => {
+export const useGetProducts = () => {
     const [productsData, setProductsData] = useState([]);
     useEffect(() => {
         getProducts(limit)
