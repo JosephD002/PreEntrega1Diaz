@@ -1,6 +1,6 @@
 
 .pantalla{
   width: 100vw;
-   height: 100vh;
-   background-Color:black
+   height: 100%;
+   background-Color:rgb(5, 5, 5);
 }

@@ -1,3 +1,6 @@
+//?CSS
+import './itemDetailContainer.css'
+
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useGetProductById } from '../hooks/useProducts';
@@ -10,7 +13,10 @@ import { useParams } from 'react-router';
    const {productData} =  useGetProductById(id)
     
     return (
-        <Card  key={productData.id}style={{ width: '18rem' }}>
+      
+      <div style={{display:'flex',justifyContent:'center',flexDirection:'column'}}>
+        <h1 style={{ color:'white',display:'flex',justifyContent:'center'}}>Detalles del producto</h1>
+        <Card className='productoDetallado' key={productData.id}>
         <Card.Img variant="top" src={productData.image} />
          <Card.Body>
            <Card.Title>{productData.title}</Card.Title>
@@ -20,6 +26,7 @@ import { useParams } from 'react-router';
            {productData.price}
          </Card.Body>
        </Card>
+       </div>
     )
     
   

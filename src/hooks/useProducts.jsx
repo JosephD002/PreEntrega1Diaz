@@ -6,17 +6,17 @@ import { getProducts, getProductsById ,getCategories,getProductsByCategory} from
  * @description Hook that is used to get products
  * @returns  {Array}
  */
-export const useGetProducts = () => {
+export const useGetProducts = (limit) => {
     const [productsData, setProductsData] = useState([]);
     useEffect(() => {
-        getProducts(limit)
-          .then((response) => {
-           setProductsData(response.data.products)
+        getProducts()
+           .then((response) => {
+           setProductsData(response.data)
           })
           .catch((error) => {
-            console.log(error);
+            
           });
-      } ,[]);
+      } ,[limit]);
 
       return{productsData}
 }
@@ -47,7 +47,7 @@ export const useGetCategories = () => {
          setCategories(response.data)
         })
         .catch((error) => {
-          console.log(error);
+          
         });
     } ,[]);
 
@@ -60,10 +60,10 @@ export const useGetProductsByCategory = (id) => {
   useEffect(() => {
     getProductsByCategory(id)
         .then((response) => {
-         setProductsData(response.data.products)
+         setProductsData(response.data)
         })
         .catch((error) => {
-          console.log(error);
+          
         });
     } ,[id]);
 
