@@ -1,37 +1,45 @@
 import { useState, useEffect } from "react";
-import { getProducts, getProductsById ,getCategories,getProductsByCategory} from "../services";
-
+import { getCategories,getProductsByCategory} from "../services";
+import { collection, getDocs, doc, getDoc, getFirestore } from "firebase/firestore";
 
 /**
  * @description Hook that is used to get products
  * @returns  {Array}
  */
-export const useGetProducts = (limit) => {
+
+
+
+
+
+
+export const useGetProducts = (collectionName="products") => {
     const [productsData, setProductsData] = useState([]);
     useEffect(() => {
-        getProducts()
-           .then((response) => {
-           setProductsData(response.data)
-          })
-          .catch((error) => {
-            
-          });
-      } ,[limit]);
+      const db = getFirestore();
+      const productsCollection = collection(db, collectionName); //Podemos usarlo para cualquier colección
+  
+      getDocs(productsCollection).then((snapshot) => {
+        setProductsData(
+          snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+        );
+      });
+    }, []);
 
-      return{productsData}
+      return{productsData};
 }
 
-export const useGetProductById = (id) => {
+export const useGetProductById = (collectionName= "products",id) => {
   const [productData, setProductData] = useState([]);
   useEffect(() => {
-      getProductsById(id)
-        .then((response) => {
-         setProductData(response.data)
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    } ,[id]);
+    const db = getFirestore();
+
+    const docRef = doc(db, collectionName, id)
+
+    getDoc(docRef).then((doc) => {
+      setProductData({ id: doc.id, ...doc.data() })
+    })
+
+  }, [id]);
 
     return{productData}
 }
@@ -69,3 +77,19 @@ export const useGetProductsByCategory = (id) => {
 
     return{productsData}
 }
+
+
+/*export const useGetProducts = (limit) => {
+    const [productsData, setProductsData] = useState([]);
+    useEffect(() => {
+        getProducts()
+           .then((response) => {
+           setProductsData(response.data)
+          })
+          .catch((error) => {
+            
+          });
+      } ,[limit]);
+
+      return{productsData}
+} */
