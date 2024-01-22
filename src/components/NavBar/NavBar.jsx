@@ -8,7 +8,7 @@ import CartWidget from '../CartWidget';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './NavBar.css';
-
+import Modal from "../Modal"
 import { useGetCategories } from '../../hooks/useProducts';
 
 
@@ -29,14 +29,15 @@ const NavBar = () => {
       {
         categories.map((category,index) => {
           return (
-            <NavDropdown.Item key={index}><Link key={index} to={`/category/${category}`}>{category}</Link></NavDropdown.Item>
+            <NavDropdown.Item key={index}><Link key={index} to={`/category/${category}`}><p className='link-categories'>{category}</p></Link></NavDropdown.Item>
           )
         })
       }
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
-  <Button variant="outline-light"><CartWidget/></Button>
+  <Link to="/create-product"><p className='link-crear'>Anadir nuevo producto</p></Link>
+  <Button variant="outline-light"><CartWidget className="CartWidget"/></Button>
 </Container>
 </Navbar>
   )
@@ -45,3 +46,4 @@ const NavBar = () => {
 export default NavBar;
 
  
+//<Button variant="outline-light"><CartWidget className="CartWidget"/></Button>/*<Modal className="btn-Modal"/>

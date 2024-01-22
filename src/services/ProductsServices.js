@@ -12,7 +12,7 @@ import axios from "axios";
 export async function getProducts(limit=10){
   return await axios.get(`https://fakestoreapi.com/products?limit=${limit}`)
   
- 
+
  
 }
 console.log('https://fakestoreapi.com/products')

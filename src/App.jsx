@@ -10,6 +10,8 @@ import "./App.css";
 //?RUTAS
 import FirstRouter from "./router/firstRouter";
 
+//?cartProvider
+import { CartProvider } from "./Context/CartContext";
 
 const App = () => {
  
@@ -17,8 +19,9 @@ const App = () => {
 
   return (
     <div className="pantalla">
-    <FirstRouter/>
-    
+      <CartProvider>
+        <FirstRouter/>
+      </CartProvider>
     </div>
   );
 };

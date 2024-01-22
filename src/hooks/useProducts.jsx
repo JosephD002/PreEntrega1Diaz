@@ -1,3 +1,5 @@
+
+
 import { useState, useEffect } from "react";
 import { getCategories,getProductsByCategory} from "../services";
 import { collection, getDocs, doc, getDoc, getFirestore } from "firebase/firestore";
@@ -12,11 +14,11 @@ import { collection, getDocs, doc, getDoc, getFirestore } from "firebase/firesto
 
 
 
-export const useGetProducts = (collectionName="products") => {
+export const useGetProducts = (collectionName="Products") => {
     const [productsData, setProductsData] = useState([]);
     useEffect(() => {
       const db = getFirestore();
-      const productsCollection = collection(db, collectionName); //Podemos usarlo para cualquier colección
+      const productsCollection = collection(db, collectionName);
   
       getDocs(productsCollection).then((snapshot) => {
         setProductsData(
@@ -24,11 +26,12 @@ export const useGetProducts = (collectionName="products") => {
         );
       });
     }, []);
-
+    
       return{productsData};
 }
 
-export const useGetProductById = (collectionName= "products",id) => {
+
+export const useGetProductById = (collectionName= "Products",id) => {
   const [productData, setProductData] = useState([]);
   useEffect(() => {
     const db = getFirestore();
@@ -46,22 +49,23 @@ export const useGetProductById = (collectionName= "products",id) => {
 
 
 
-export const useGetCategories = () => {
-  const [categories,setCategories] = useState([]);
+export const useGetCategories = (collectionName = 'categories') => {
+  const [categories, setCategories] = useState([]);
+
   useEffect(() => {
-      getCategories()
-        .then((response) => {
-         
-         setCategories(response.data)
-        })
-        .catch((error) => {
-          
-        });
-    } ,[]);
+    const db = getFirestore();
+    const productsCollection = collection(db, collectionName);
 
-    return{categories}
-}
+    getDocs(productsCollection).then((snapshot) => {
+      const categories = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+      setCategories(
+        categories[0].categories
+      );
+    });
+  }, []);
 
+  return { categories };
+};
 
 export const useGetProductsByCategory = (id) => {
   const [productsData, setProductsData] = useState([]);
@@ -71,7 +75,7 @@ export const useGetProductsByCategory = (id) => {
          setProductsData(response.data)
         })
         .catch((error) => {
-          
+          console.log(error)
         });
     } ,[id]);
 
@@ -92,4 +96,21 @@ export const useGetProductsByCategory = (id) => {
       } ,[limit]);
 
       return{productsData}
-} */
+} 
+export const useGetCategories = () => {
+  const [categories,setCategories] = useState([]);
+  useEffect(() => {
+      getCategories()
+        .then((response) => {
+         
+         setCategories(response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        });
+    } ,[]);
+
+    return{categories}
+}
+console.log(useGetCategories)
+*/

@@ -1,0 +1,25 @@
+
+.ICS{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.ItemCountStyle{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin:20px
+}
+
+.boton-contador {
+    background-color: rgb(70, 70, 70);
+    transition: 0.5s;
+    justify-content: center;
+}
+
+.boton-contador :hover{
+    color:white;
+}
