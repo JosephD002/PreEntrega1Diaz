@@ -15,7 +15,7 @@ export async function getProducts(limit=10){
 
  
 }
-console.log('https://fakestoreapi.com/products')
+
 export async function getProductsById(id){
   return await axios.get(`https://fakestoreapi.com/products/${id}`)
 }

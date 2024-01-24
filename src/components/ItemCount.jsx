@@ -1,12 +1,17 @@
-import { useContext,useState } from "react";
+import { useContext,useState,} from "react";
 import {Button} from "react-bootstrap"
 import {CartContext} from "../Context/CartContext"
+import { useGetProductById } from '../hooks/useProducts';
+import { useParams } from 'react-router';
 import "./ItemCount.css"
 
 
 
 
 const ItemCount = ({productId}) => {
+ 
+  const {id} = useParams()
+  const {productData} =  useGetProductById("products",id)
 
 const [countItem,setCountItem] =useState(1)
 
@@ -36,7 +41,9 @@ const handleAddProductToCart = () => {
     }
 
     setCountItem(1);
+console.log()
   };
+
 
 
   return (
@@ -56,25 +63,3 @@ const handleAddProductToCart = () => {
 
 export default ItemCount
 
-/*const handleAddProductToCart = () =>{
-    const newProduct= {
-    id:productId,
-    quantity:countItem,
-    }
-
-    if(count.length === 0) {
-        setCount([newProduct])
-    } else {
-        count.map((item)=> {
-            if(item.id === productId){
-                return{
-                    ...item,
-                    quantity:item.quantity + countItem,
-                }
-            } else { 
-                setCount([...count, newProduct])
-            }
-        })
-    }
-    setCountItem(1)
-} */

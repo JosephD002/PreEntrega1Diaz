@@ -16,7 +16,7 @@ const CartWidget = () => {
    const {count} =useContext(CartContext)
   
    const totalQuantity = count.reduce((total, item) => total + item.quantity, 0);
-   console.log({totalQuantity})
+   
   return (
     <Link to="/cart"> 
      <div className="Carrito">
