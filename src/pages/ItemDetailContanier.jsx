@@ -1,6 +1,7 @@
 //?CSS
 import './itemDetailContainer.css'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Card from 'react-bootstrap/Card';
 import { useGetProductById } from '../hooks/useProducts';
@@ -29,15 +30,10 @@ import { Link } from 'react-router-dom';
            <Link to={`/update-product/${productData.id}`} ><p  className="link-editar">Editar producto</p></Link>
          </Card.Body>
        </Card>
+       <ToastContainer />  
        </div>
     )
     
   
 }
 
-//? Lo tengo por si quiero mostrar las imagenes de otra api que llegue a usar
-/* 
- <ItemCount productId={productData.id}/>
-{
-            productData.images ? productData.images.map(image => <Card.Img variant="top" src={image} />) : null
-           }*/

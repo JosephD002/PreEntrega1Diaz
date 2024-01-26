@@ -3,6 +3,7 @@ import { CartContext } from "../Context/CartContext"
 import { getDoc,doc,getFirestore } from "firebase/firestore"
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import swal from 'sweetalert';
 import "./CartContent.css"
 
 
@@ -20,6 +21,29 @@ export const CartContent = () => {
     return updatedCount.filter(item =>item.quantity>0)
    })
   }
+
+const endPurchase = () =>{
+  swal({
+    title: "Esta seguro?",
+    text: "Una vez realizada la compra sera procesada!",
+    icon: "warning",
+    color: "black",
+    buttons: true,
+    dangerMode: true,
+  })
+  .then((willDelete) => {
+    if (willDelete) {
+      swal("Su compra se realizo con exito!", {
+        icon: "success",
+      });
+  setCount([]);
+  setProducts([]);
+    } else {
+      swal("Puede seguir con su compra");
+    }
+  });
+}
+//En el useEffect,especificamente en el setProducts se filtran los productos,y en el return se agrega el producto anadido
   useEffect(() => {
     const db = getFirestore();
     for (let i = 0; i < count.length; i++) {
@@ -37,7 +61,7 @@ export const CartContent = () => {
     }
   }, [count]);
 
-  return count.length === 0 ? <h1 className="h1-SinProductos">No hay productos en el carrito</h1> : <div className="producto-carrito">
+  return count.length === 0 ? <h1 className="h1-SinProductos">No hay productos en el carrito</h1> :<div className="detalles-compra"> <div className="producto-carrito">
     {products.map((product) => (
       <Card key={product.id} className="card-Compra">
       <Card.Img variant="top" src={product.image} />
@@ -52,6 +76,8 @@ export const CartContent = () => {
       </div>
     </Card>
   ))}
+  </div>
+  <Button  className="fin-compra" onClick={endPurchase}>Finalizar compra</Button>
   </div>;
 }
 

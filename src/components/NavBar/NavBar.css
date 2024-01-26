@@ -16,17 +16,8 @@
     color:red!important;
 }
 
-.link-crear {
-    color:  rgb(116, 115, 115);
-    font-size: 20px;
-    transition: .5s;
-    
-}
 
-.link-crear:hover {
-    color:rgb(255, 255, 255);
-    
-}
+
 
 .link-categories {
     color: rgb(116, 116, 116);
@@ -39,7 +30,13 @@
     color: rgb(255, 255, 255); 
    
 }
-
+.btn-crear{
+    display: flex;
+    background-color:black ;
+    border-color: black;
+    justify-content: center;
+    align-items: center;
+}
 .btn-Modal {
     display: flex;
     justify-content: flex-end;

@@ -1,7 +1,15 @@
  .h1-SinProductos {
     display: flex;
     justify-content: center;
+    
    
+ }
+
+ .detalles-compra{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
  }
  
  .producto-carrito {
@@ -43,3 +51,18 @@
     font-size: 25px;
  }
 
+.fin-compra{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 100px;
+    background-color: rgb(70, 70, 70) ;
+    transition: .5s;
+    font-size: 25px;
+}
+
+.fin-compra:hover{
+    color: black;
+    background-color: white;
+}
