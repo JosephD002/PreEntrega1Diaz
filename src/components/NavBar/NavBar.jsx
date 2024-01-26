@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import CartWidget from '../CartWidget';
+import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './NavBar.css';
@@ -36,7 +36,7 @@ const NavBar = () => {
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
-  <Link to="/create-product"><Button className='btn-crear'>Anadir nuevo producto</Button></Link>
+  <Link to="/create-product"><Button className='btn-crear'>Añadir nuevo producto</Button></Link>
   <Button variant="outline-light"><CartWidget className="CartWidget"/></Button>
 </Container>
 </Navbar>

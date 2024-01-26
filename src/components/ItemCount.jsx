@@ -42,10 +42,10 @@ const handleAddProductToCart = () => {
       setCount([...count, { id: productId, quantity: countItem }]);
      
     }
-    toast.success('Producto anadido con exito!', {
-      position: "top-left",
+    toast.success('Producto añadido con exito!', {
+      position: "bottom-left",
       autoClose: 5000,
-      hideProgressBar: false,
+      hideProgressBar: true,
       closeOnClick: true,
       pauseOnHover: false,
       draggable: true,

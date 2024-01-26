@@ -3,6 +3,8 @@ import { useGetProductById } from "../hooks/useProducts"
 import { useState , useEffect} from "react"
 import { doc, getFirestore, updateDoc } from "firebase/firestore"
 import "./updateProduct.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export const UpdateProduct = () => {
     const { id } = useParams()
 
@@ -37,7 +39,16 @@ export const UpdateProduct = () => {
       const productsCollection = doc(db, "products", id)
       
       updateDoc(productsCollection, data).then(() => {
-        alert("Producto actualizado con éxito");
+        toast.success('Producto actualizado exitosamente!', {
+          position: "top-center",
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
       });
     }
 
@@ -78,6 +89,7 @@ export const UpdateProduct = () => {
         ))}
       </select> */}
       <button onClick={handleUpdateProduct}>Actualizar producto</button>
+      <ToastContainer />  
     </div>
   )
 }

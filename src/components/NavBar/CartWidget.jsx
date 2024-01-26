@@ -3,7 +3,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons"
 
-import { CartContext } from "../Context/CartContext"
+import { CartContext } from "../../Context/CartContext"
 
 //?CSS
 import './CartWidget.css'

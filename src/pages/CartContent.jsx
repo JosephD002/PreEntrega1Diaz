@@ -43,7 +43,7 @@ const endPurchase = () =>{
     }
   });
 }
-//En el useEffect,especificamente en el setProducts se filtran los productos,y en el return se agrega el producto anadido
+//En el useEffect,especificamente en el setProducts se filtran los productos,y en el return se agrega el producto añadido
   useEffect(() => {
     const db = getFirestore();
     for (let i = 0; i < count.length; i++) {

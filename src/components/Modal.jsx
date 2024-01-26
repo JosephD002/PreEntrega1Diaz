@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import CartWidget from './CartWidget';
+import CartWidget from './NavBar/CartWidget';
 import ItemCount from './ItemCount';
 import "./Modal.css"
-
+                                                //?Esto sera usado pronto
 function Example() {
   const [show, setShow] = useState(false);
 

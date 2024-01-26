@@ -2,6 +2,9 @@ import { useState } from "react"
 import { useGetCategories } from "../hooks/useProducts"
 import {collection,getFirestore,addDoc} from "firebase/firestore"
 import "./CreateProduct.css"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
  export const CreateProduct = () => {
 
 const [title,setTitle]= useState("")
@@ -39,7 +42,16 @@ const handleCreateProduct = () =>{
 
   const productsCollection = collection(db,"products")
   addDoc(productsCollection, data).then(({id}) => {
-    alert("Producto creado con exito!")
+    toast.success('Producto creado con exito!', {
+      position: "top-center",
+      autoClose: 5000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
     handleFieldReset()
   })
 
@@ -84,6 +96,7 @@ const handleCreateProduct = () =>{
         ))}
         </select>
         <button onClick={handleCreateProduct}>Crear producto</button>
+        <ToastContainer />  
     </div>
   )
 }
