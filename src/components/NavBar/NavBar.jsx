@@ -8,7 +8,7 @@ import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import './NavBar.css';
-//import Modal from "../Modal"
+
 import { useGetCategories } from '../../hooks/useProducts';
 
 
@@ -45,5 +45,3 @@ const NavBar = () => {
 
 export default NavBar;
 
- //?Terminar el modal(pronto...)
-//<Button variant="outline-light"><CartWidget className="CartWidget"/></Button>/*<Modal className="btn-Modal"/>
