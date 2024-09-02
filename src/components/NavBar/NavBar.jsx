@@ -36,7 +36,7 @@ const NavBar = () => {
       </NavDropdown>
     </Nav>
   </Navbar.Collapse>
-  <Link to="/create-product"><Button className='btn-crear'>Añadir nuevo producto</Button></Link>
+ 
   <Button variant="outline-light"><CartWidget className="CartWidget"/></Button>
 </Container>
 </Navbar>

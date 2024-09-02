@@ -5,7 +5,7 @@ import "./Home.css"
   
     const  {productsData}= useGetProducts('products')
    
-    return (<div className="Home"><h1>Encuentra todo lo que necesitas en Logic</h1><ItemListContainer productsData={productsData} /></div>)
+    return (<div className="Home"><h1>Todos los productos</h1><ItemListContainer productsData={productsData} /></div>)
     
   
 }

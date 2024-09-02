@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom';
       <div className='div-itemDetailContainer'>
         <h1 className='titulo-itemDetailContainer'>Detalles del producto</h1>
         <Card className='productoDetallado' key={productData.id}>
-        <Card.Img variant="top" src={productData.image} />
+        <Card.Img  className='imagenDetallada' variant="top" src={productData.image} />
          <Card.Body>
            <Card.Title>{productData.title}</Card.Title>
            <Card.Text>

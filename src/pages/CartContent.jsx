@@ -42,6 +42,11 @@ const endPurchase = () =>{
       swal("Puede seguir con su compra");
     }
   });
+
+  const EraseProducts = () =>{
+   SetCount([])
+   setProducts([])
+  }
 }
 //En el useEffect,especificamente en el setProducts se filtran los productos,y en el return se agrega el producto añadido
   useEffect(() => {
@@ -61,13 +66,15 @@ const endPurchase = () =>{
     }
   }, [count]);
 
+  const total = products.reduce((acc, product) => acc + product.price * product.quantity, 0);  
+
   return count.length === 0 ? <h1 className="h1-SinProductos">No hay productos en el carrito</h1> :<div className="detalles-compra"> <div className="producto-carrito">
     {products.map((product) => (
       <Card key={product.id} className="card-Compra">
       <Card.Img variant="top" src={product.image} />
       <Card.Body>
         <Card.Title>{product.title}</Card.Title>
-    <Card.Text>Price:{product.price}$</Card.Text>
+    <Card.Text>Total:  {product.price * product.quantity}$</Card.Text>
       </Card.Body>
       <div className="btn-compra">
         <Button  onClick={() => handleAdd(product.id)}>+</Button>
@@ -77,7 +84,12 @@ const endPurchase = () =>{
     </Card>
   ))}
   </div>
+  
+  <div className="total-compra"><h2>Total del carrito: {total}$</h2> </div>
+  <div className="final-de-compra">
+  <Button className="fin-compra" >Borrar productos</Button>
   <Button  className="fin-compra" onClick={endPurchase}>Finalizar compra</Button>
+  </div>
   </div>;
 }
 

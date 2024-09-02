@@ -10,20 +10,7 @@ import { Link } from 'react-router-dom';
 
 const ItemListContainer = ({productsData}) => {
   
-  /*const [isLoading, setIsLoading] = useState(true);
-
-  // Simulamos la obtención de datos con useEffect
-  useEffect(() => {
-    if (productsData) {
-      setIsLoading(false);
-    }
-  }, [productsData]);
-
-  // Mientras los datos están cargando, mostramos un mensaje de carga
-  if (isLoading) {
-    return <div>Cargando...</div>;
-  }
-*/
+  
   
   return (
     <div className='productos'>
